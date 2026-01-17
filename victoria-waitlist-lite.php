@@ -356,6 +356,11 @@ final class Victoria_Waitlist_Lite {
             });
 
             function openModal(data) {
+                // Reset PRIMERO, antes de setear valores
+                form.reset();
+                response.innerHTML = '';
+
+                // Luego setear los valores
                 document.getElementById('vwl-product-id').value = data.id;
                 document.getElementById('vwl-input-name').value = data.name;
                 document.getElementById('vwl-input-sku').value = data.sku || '';
@@ -363,8 +368,7 @@ final class Victoria_Waitlist_Lite {
                 document.getElementById('vwl-input-image').value = data.image || '';
                 document.getElementById('vwl-product-name').textContent = data.name;
                 document.getElementById('vwl-product-sku').textContent = data.sku ? 'SKU: ' + data.sku : '';
-                response.innerHTML = '';
-                form.reset();
+
                 modal.style.display = 'flex';
             }
 
